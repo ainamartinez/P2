@@ -4,13 +4,16 @@
 # Use the nautilus explorer or chmod +x run_vad.sh
 
 # Establecemos que el código de retorno de un pipeline sea el del último programa con código de retorno
-# distinto de cero, o cero si todos devuelven cero.
-set -o pipefail
+# distinto de cero, o cero si todos devuelven cero. (Esto sirve para que pete todo si uno peta)
+set -o pipefail 
+
+#para asignar un valor a alfa1, por defecto hemos puesto 5.1 (el menos es por sintaxis)
+alfa1=${1:-5.1}
 
 # Write here the name and path of your program and database
 DIR_P2=$HOME/PAV/P2
 DB=$DIR_P2/db.v4
-CMD=$DIR_P2/bin/vad
+CMD="$DIR_P2/bin/vad -1 $alfa1"  
 
 for filewav in $DB/*/*wav; do
 #    echo

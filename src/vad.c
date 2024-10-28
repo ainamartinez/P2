@@ -1,7 +1,7 @@
 #include <math.h>
 #include <stdlib.h>
 #include <stdio.h>
-
+#include "pav_analysis.h"
 #include "vad.h"
 
 const float FRAME_TIME = 10.0F; /* in ms. */
@@ -42,7 +42,8 @@ Features compute_features(const float *x, int N) {
    * For the moment, compute random value between 0 and 1 
    */
   Features feat;
-  feat.zcr = feat.p = feat.am = (float) rand()/RAND_MAX;
+  // esto es lo de antes: feat.zcr = feat.p = feat.am = (float) rand()/RAND_MAX;  //hace un número aleatorio para cada trama
+  feat.p = compute_power (x,N); //esto es lo que hicimos en la práctica 1
   return feat;
 }
 
@@ -77,7 +78,7 @@ unsigned int vad_frame_size(VAD_DATA *vad_data) {
  * using a Finite State Automata
  */
 
-VAD_STATE vad(VAD_DATA *vad_data, float *x) {
+VAD_STATE vad(VAD_DATA *vad_data, float *x, float alfa1) {
 
   /* 
    * TODO: You can change this, using your own features,
@@ -90,16 +91,19 @@ VAD_STATE vad(VAD_DATA *vad_data, float *x) {
   switch (vad_data->state) {
   case ST_INIT:
     vad_data->state = ST_SILENCE;
+    vad_data->p1 = f.p + alfa1;
     break;
 
   case ST_SILENCE:
-    if (f.p > 0.95)
+    if (f.p > vad_data->p1) {
       vad_data->state = ST_VOICE;
+    }
     break;
 
   case ST_VOICE:
-    if (f.p < 0.01)
+    if (f.p < vad_data->p1) {
       vad_data->state = ST_SILENCE;
+    }
     break;
 
   case ST_UNDEF:
