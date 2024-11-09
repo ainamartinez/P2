@@ -136,32 +136,38 @@ Ejercicios
   continuación, una captura de `wavesurfer` en la que se vea con claridad la señal temporal, el contorno de
   potencia y la tasa de cruces por cero, junto con el etiquetado manual de los segmentos.
 
+![Figure: Captura de Wavesurfer (transcripción-ZCR-potencia-tiempo)](WaveSurfer.png)
 
 - A la vista de la gráfica, indique qué valores considera adecuados para las magnitudes siguientes:
 
-	* Incremento del nivel potencia en dB, respecto al nivel correspondiente al silencio inicial, para
-	  estar seguros de que un segmento de señal se corresponde con voz.
+	* Incremento del nivel potencia en dB, respecto al nivel correspondiente al silencio inicial, para estar seguros de que un segmento de señal se corresponde con voz.
+
+	Fíjandonos en la gráfica, consideramos que un valor óptimo para considerar que la señal deja de ser ruido es a partir de los 35 dB.
 
 	* Duración mínima razonable de los segmentos de voz y silencio.
 
-	* ¿Es capaz de sacar alguna conclusión a partir de la evolución de la tasa de cruces por cero?
+	Consideramos que la duración mínima razonable debería ser 75ms. 
 
+	* ¿Es capaz de sacar alguna conclusión a partir de la evolución de la tasa de cruces por cero?
+	
+	En nuestro audio, vemos por ejemplo que las 's' de "som" o de "estem" son los primeros picos de la voz. Además, hay de fondo un ruido  y por eso hay ciertos picos en la ZCR
 
 ### Desarrollo del detector de actividad vocal
 
-- Complete el código de los ficheros de la práctica para implementar un detector de actividad vocal en
-  tiempo real tan exacto como sea posible. Tome como objetivo la maximización de la puntuación-F `TOTAL`.
+- Complete el código de los ficheros de la práctica para implementar un detector de actividad vocal en tiempo real tan exacto como sea posible. Tome como objetivo la maximización de la puntuación-F `TOTAL`.
 
-- Inserte una gráfica en la que se vea con claridad la señal temporal, el etiquetado manual y la detección
-  automática conseguida para el fichero grabado al efecto. 
+- Inserte una gráfica en la que se vea con claridad la señal temporal, el etiquetado manual y la detección automática conseguida para el fichero grabado al efecto. 
 
+![Figure: Captura de Wavesurfer (transcripción manual-detección automática)](assesment.png)
 - Explique, si existen. las discrepancias entre el etiquetado manual y la detección automática.
 
+Vemos cierta discrepancia en las breves pausas del audio (entre palabras) o en consonantes sordas como las 's'. Así mismo, en silencio se equivoca por ejemplo cuando hay un ruido de fndo que destaca
+
 - Evalúe los resultados sobre la base de datos `db.v4` con el script `vad_evaluation.pl` e inserte a 
-  continuación las tasas de sensibilidad (*recall*) y precisión para el conjunto de la base de datos (sólo
+continuación las tasas de sensibilidad (*recall*) y precisión para el conjunto de la base de datos (sólo
   el resumen).
 
-
+![Figure: Resumen de los resultado con la base de datos)](summary_assesment_dataBase.png)
 ### Trabajos de ampliación
 
 #### Cancelación del ruido en los segmentos de silencio
@@ -175,7 +181,7 @@ Ejercicios
 - Si ha usado `docopt_c` para realizar la gestión de las opciones y argumentos del programa `vad`, inserte
   una captura de pantalla en la que se vea el mensaje de ayuda del programa.
 
-
+![Figure: Uso (y modificación) de docopt_c)](docopt.png)
 ### Contribuciones adicionales y/o comentarios acerca de la práctica
 
 - Indique a continuación si ha realizado algún tipo de aportación suplementaria (algoritmos de detección o 
