@@ -136,7 +136,7 @@ Ejercicios
   continuación, una captura de `wavesurfer` en la que se vea con claridad la señal temporal, el contorno de
   potencia y la tasa de cruces por cero, junto con el etiquetado manual de los segmentos.
 
-![Figure: Captura de Wavesurfer (transcripción-ZCR-potencia-tiempo)](WaveSurfer.png)
+![Figure: Captura de Wavesurfer (transcripción-ZCR-potencia-tiempo)](img/WaveSurfer.png)
 
 - A la vista de la gráfica, indique qué valores considera adecuados para las magnitudes siguientes:
 
@@ -158,7 +158,7 @@ Ejercicios
 
 - Inserte una gráfica en la que se vea con claridad la señal temporal, el etiquetado manual y la detección automática conseguida para el fichero grabado al efecto. 
 
-![Figure: Captura de Wavesurfer (transcripción manual-detección automática)](assesment.png)
+![Figure: Captura de Wavesurfer (transcripción manual-detección automática)](img/assesment.png)
 - Explique, si existen. las discrepancias entre el etiquetado manual y la detección automática.
 
 Vemos cierta discrepancia en las breves pausas del audio (entre palabras) o en consonantes sordas como las 's'. Así mismo, en silencio se equivoca por ejemplo cuando hay un ruido de fndo que destaca
@@ -167,7 +167,7 @@ Vemos cierta discrepancia en las breves pausas del audio (entre palabras) o en c
 continuación las tasas de sensibilidad (*recall*) y precisión para el conjunto de la base de datos (sólo
   el resumen).
 
-![Figure: Resumen de los resultado con la base de datos)](summary_assesment_dataBase.png)
+![Figure: Resumen de los resultado con la base de datos)](img/summary_assesment_dataBase.png)
 ### Trabajos de ampliación
 
 #### Cancelación del ruido en los segmentos de silencio
@@ -181,7 +181,7 @@ continuación las tasas de sensibilidad (*recall*) y precisión para el conjunto
 - Si ha usado `docopt_c` para realizar la gestión de las opciones y argumentos del programa `vad`, inserte
   una captura de pantalla en la que se vea el mensaje de ayuda del programa.
 
-![Figure: Uso (y modificación) de docopt_c)](docopt.png)
+![Figure: Uso (y modificación) de docopt_c)](img/docopt.png)
 ### Contribuciones adicionales y/o comentarios acerca de la práctica
 
 - Indique a continuación si ha realizado algún tipo de aportación suplementaria (algoritmos de detección o 
